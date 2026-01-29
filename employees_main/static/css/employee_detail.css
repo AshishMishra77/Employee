@@ -1,0 +1,73 @@
+
+        body {
+            background: #f4f6f9;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .employee-card {
+            width: 55%;
+            margin: 60px auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: #4a90e2;
+            color: #ffffff;
+            padding: 18px 25px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #e6e6e6;
+            font-size: 15px;
+            color: #2c3e50;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            font-weight: 600;
+            color: #34495e;
+            width: 40%;
+        }
+
+        .value {
+            width: 60%;
+            text-align: left;
+        }
+
+        .status {
+            font-weight: 600;
+            color: #27ae60;
+        }
+
+        .actions {
+            padding: 18px 25px;
+            background: #f9fafc;
+            text-align: right;
+        }
+
+        .actions i {
+            margin-left: 18px;
+            font-size: 18px;
+            cursor: pointer;
+            color: #2c3e50;
+        }
+
+        .fa-eye:hover { color: #3498db; }
+        .fa-edit:hover { color: #f39c12; }
+        .fa-trash:hover { color: #e74c3c; }
+    

@@ -1,0 +1,48 @@
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth import login as auth_login, logout as auth_logout
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.decorators import login_required
+
+
+# ================= REGISTER =================
+
+def register(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Registered successfully 🎉")
+            return redirect("login")
+        else:
+            messages.error(request, "Please fix the errors below ❌")
+    else:
+        form = UserCreationForm()
+
+    return render(request, "accounts/register.html", {"form": form})
+
+
+# ================= LOGIN =================
+
+def login_view(request):
+    if request.method == "POST":
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            auth_login(request, form.get_user())
+            messages.success(request, "Logged in successfully ✅")
+            return redirect("home")
+        else:
+            messages.error(request, "Invalid username or password ❌")
+    else:
+        form = AuthenticationForm()
+
+    return render(request, "accounts/login.html", {"form": form})
+
+
+# ================= LOGOUT =================
+
+@login_required(login_url="login")
+def logout_view(request):
+    auth_logout(request)
+    # messages.success(request, "Logged out successfully 👋")
+    return redirect("login")

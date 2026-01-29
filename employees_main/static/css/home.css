@@ -1,0 +1,89 @@
+      /* ===== Global ===== */
+        body {
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 30px;
+            color: #2c3e50;
+        }
+
+        /* ===== Table ===== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ===== Header ===== */
+        thead {
+            background: #4f8fdd;
+            color: #ffffff;
+        }
+
+        th {
+            padding: 15px 14px;
+            text-align: left;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* ===== Body ===== */
+        td {
+            padding: 14px;
+            font-size: 14px;
+            border-bottom: 1px solid #e6e9ee;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f9fbfd;
+        }
+
+        tbody tr:hover {
+            background: #eef4ff;
+            transition: 0.2s ease;
+        }
+
+        /* ===== Status ===== */
+        .status {
+            font-weight: 600;
+        }
+
+        .status.active {
+            color: #1e8e3e;
+        }
+
+        .status.inactive {
+            color: #d93025;
+        }
+
+        /* ===== Action Icons ===== */
+        td:last-child {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .fa {
+            margin-right: 12px;
+            font-size: 16px;
+            color: #34495e;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .fa-eye:hover { color: #4f8fdd; }
+        .fa-edit:hover { color: #f39c12; }
+        .fa-trash:hover { color: #e74c3c; }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 900px) {
+            th,
+            td {
+                padding: 10px;
+                font-size: 13px;
+            }
+        }

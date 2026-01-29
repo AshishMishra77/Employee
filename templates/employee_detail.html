@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Detail</title>
+
+    <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/employee_detail.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+   
+</head>
+
+<body>
+
+
+    <div class="employee-card">
+        <div class="card-header">
+            Employee Details — {{ employee.full_name }}
+        </div>
+
+        <div class="card-body">
+            <div class="detail-row">
+                <div class="label">Email</div>
+                <div class="value">{{ employee.email }}</div>
+            </div>
+
+            <div class="detail-row">
+                <div class="label">Designation</div>
+                <div class="value">{{ employee.designation }}</div>
+            </div>
+
+            <div class="detail-row">
+                <div class="label">Salary</div>
+                <div class="value">{{ employee.salary }}</div>
+            </div>
+
+            <div class="detail-row">
+                <div class="label">Manager</div>
+                <div class="value">{{ employee.manager }}</div>
+            </div>
+
+            <div class="detail-row">
+                <div class="label">Department</div>
+                <div class="value">{{ employee.department }}</div>
+            </div>
+
+            <div class="detail-row">
+                <div class="label">Active</div>
+                <div class="value status">
+                    {% if employee.is_active %}True{% else %}False{% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <a href="{% url 'employee_detail' employee.id %}">
+                <i class="fa fa-eye"></i>
+            </a>
+            <a href="{% url 'employee_edit' employee.id %}">
+                <i class="fa fa-edit"></i>
+            </a>
+            <a href="{% url 'employee_delete' employee.id %}">
+                <i class="fa fa-trash"></i>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
