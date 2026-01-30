@@ -56,6 +56,7 @@
         </div>
 
         <div class="actions">
+            {% if perms.employees.add_employee %}
             <a href="{% url 'employee_detail' employee.id %}">
                 <i class="fa fa-eye"></i>
             </a>
@@ -64,6 +65,7 @@
             </a>
             <a href="{% url 'employee_delete' employee.id %}">
                 <i class="fa fa-trash"></i>
+            {% endif %}
             </a>
         </div>
     </div>

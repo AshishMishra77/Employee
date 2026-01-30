@@ -2,12 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth.decorators import login_required
 
-
-# ================= REGISTER =================
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect("home")
+
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -22,9 +22,10 @@ def register(request):
     return render(request, "accounts/register.html", {"form": form})
 
 
-# ================= LOGIN =================
-
 def login_view(request):
+    if request.user.is_authenticated:
+        return redirect("home")
+
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -39,10 +40,6 @@ def login_view(request):
     return render(request, "accounts/login.html", {"form": form})
 
 
-# ================= LOGOUT =================
-
-@login_required(login_url="login")
 def logout_view(request):
     auth_logout(request)
-    # messages.success(request, "Logged out successfully 👋")
-    return redirect("login")
+    return redirect("home")
